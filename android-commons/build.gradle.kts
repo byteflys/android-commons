@@ -73,13 +73,13 @@ dependencies {
     api("com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0")
 
     // OkHttp3
-    api("com.squareup.okhttp3:okhttp:+")
-    api("com.squareup.okhttp3:logging-interceptor:+")
+    api("com.squareup.okhttp3:okhttp:4.12.0")
+    api("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
     // Retrofit2
-    api("com.squareup.retrofit2:retrofit:+")
-    api("com.squareup.retrofit2:converter-gson:+")
-    api("com.squareup.retrofit2:adapter-rxjava2:+")
+    api("com.squareup.retrofit2:retrofit:2.11.0")
+    api("com.squareup.retrofit2:converter-gson:2.11.0")
+    api("com.squareup.retrofit2:adapter-rxjava2:2.11.0")
 }
 
 signing {
