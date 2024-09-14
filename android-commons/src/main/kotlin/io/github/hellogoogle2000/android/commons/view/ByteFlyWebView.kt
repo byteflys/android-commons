@@ -19,9 +19,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import io.github.hellogoogle2000.android.commons.context.ContextEx.open
 import io.github.hellogoogle2000.android.commons.context.UriEx.isWebsiteOrFileUri
-import io.github.hellogoogle2000.android.commons.dialog.ToastEx
-import io.github.hellogoogle2000.android.commons.serialize.JSONEx.fromJsonOrNull
-import io.github.hellogoogle2000.android.commons.serialize.JSONEx.toJson
+import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.fromJsonOrNull
+import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.toJson
 
 @SuppressLint("JavascriptInterface")
 open class ByteFlyWebView : WebView {

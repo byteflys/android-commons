@@ -1,4 +1,4 @@
-package com.android.code.commons
+package io.github.hellogoogle2000.android.commons.context
 
 import android.app.Activity
 import android.graphics.Color
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
-import com.android.code.commons.BuildEx.isApiLevelAbove
+import io.github.hellogoogle2000.android.commons.context.BuildEx.isApiLevelAbove
 
 object ActivityEx {
 
