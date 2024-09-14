@@ -65,6 +65,10 @@ dependencies {
     api("androidx.compose.material3:material3:1.3.0")
     api("androidx.activity:activity-compose:1.9.2")
     api(platform("androidx.compose:compose-bom:2024.09.01"))
+
+    // Android Utils
+    api("net.lingala.zip4j:zip4j:2.11.5")
+    api("com.blankj:utilcodex:1.31.0")
 }
 
 signing {
