@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="basicWidth" format="dimension|reference" />
+    <attr name="basicHeight" format="dimension|reference" />
+    <attr name="maxWidth" format="dimension|reference" />
+    <attr name="maxHeight" format="dimension|reference" />
+    <attr name="maxScreenRatioX" format="float" />
+    <attr name="maxScreenRatioY" format="float" />
+
+    <declare-styleable name="MaxSizeTextView">
+        <attr name="maxWidth" />
+        <attr name="maxHeight" />
+        <attr name="maxScreenRatioX" />
+        <attr name="maxScreenRatioY" />
+    </declare-styleable>
+</resources>

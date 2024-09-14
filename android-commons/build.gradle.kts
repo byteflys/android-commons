@@ -2,7 +2,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.android.library")
     id("signing")
-    id("maven-publish")
     id("com.vanniktech.maven.publish")
 }
 
