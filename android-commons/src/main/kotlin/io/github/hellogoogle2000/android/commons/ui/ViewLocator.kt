@@ -6,7 +6,7 @@ import android.graphics.Rect
 import android.util.Size
 import android.view.View
 import android.view.WindowManager
-import io.github.hellogoogle2000.android.commons.context.ActivityX.getRootView
+import io.github.hellogoogle2000.android.commons.context.ActivityX.getActivityRootView
 
 object ViewLocator {
 
@@ -20,7 +20,7 @@ object ViewLocator {
     fun Context.getActivitySize(): Size {
         val activity = this as? Activity
         activity ?: throw RuntimeException("ui context required")
-        val activityRootView = this.getRootView()
+        val activityRootView = getActivityRootView()
         return Size(activityRootView.measuredWidth, activityRootView.measuredHeight)
     }
 

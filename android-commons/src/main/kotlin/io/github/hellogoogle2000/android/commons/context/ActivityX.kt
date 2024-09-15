@@ -24,18 +24,23 @@ object ActivityX {
         return front ?: ActivityUtils.getTopActivity()
     }
 
+    fun Context.asActivity(): Activity {
+        val activity = this as? Activity
+        return activity ?: throw RuntimeException("ui context required")
+    }
+
     fun View.getActivity(): Activity {
         val activity = context as? Activity
         return activity ?: throw RuntimeException("ui context required")
     }
 
-    fun Context.getRootView(): View {
+    fun Context.getActivityRootView(): View {
         val activity = this as? Activity
         activity ?: throw RuntimeException("ui context required")
         return activity.findViewById(android.R.id.content)
     }
 
-    fun View.getRootView() = getActivity().getRootView()
+    fun View.getActivityRootView() = getActivity().getActivityRootView()
 
     fun Activity.fullscreen() {
         if (isApiLevelAbove(Build.VERSION_CODES.R)) {
