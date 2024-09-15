@@ -5,9 +5,9 @@ import android.content.Intent
 import android.content.Intent.ACTION_VIEW
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.net.Uri
-import io.github.hellogoogle2000.android.commons.dialog.ToastEx
+import io.github.hellogoogle2000.android.commons.dialog.ToastX
 
-object ContextEx {
+object ContextX {
 
     fun Context.open(uri: String) {
         try {
@@ -15,7 +15,7 @@ object ContextEx {
             intent.setFlags(FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         } catch (e: Throwable) {
-            ToastEx.show("No Target Found")
+            ToastX.show("No Target Found")
         }
     }
 }

@@ -10,25 +10,34 @@ import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import com.blankj.utilcode.util.ActivityUtils
-import io.github.hellogoogle2000.android.commons.context.BuildEx.isApiLevelAbove
+import io.github.hellogoogle2000.android.commons.context.BuildX.isApiLevelAbove
 
-object ActivityEx {
+object ActivityX {
 
     fun AppCompatActivity.isFront(): Boolean {
         return lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)
     }
 
-    fun getFrontActivity(): Activity? {
+    fun getFrontActivity(): Activity {
         val activities = ActivityUtils.getActivityList()
-        return activities.find { it is AppCompatActivity && it.isFront() }
+        val front = activities.find { it is AppCompatActivity && it.isFront() }
+        return front ?: ActivityUtils.getTopActivity()
     }
 
-    fun Context.getTopContentView(): View {
-        val activity = this as? Activity ?: ActivityUtils.getTopActivity()
+    fun View.getActivity(): Activity {
+        val activity = context as? Activity
+        return activity ?: throw RuntimeException("ui context required")
+    }
+
+    fun Context.getRootView(): View {
+        val activity = this as? Activity
+        activity ?: throw RuntimeException("ui context required")
         return activity.findViewById(android.R.id.content)
     }
 
-    fun Activity.setFullScreenStyle() {
+    fun View.getRootView() = getActivity().getRootView()
+
+    fun Activity.fullscreen() {
         if (isApiLevelAbove(Build.VERSION_CODES.R)) {
             window.decorView.windowInsetsController
             window.decorView.windowInsetsController?.hide(WindowInsets.Type.navigationBars())

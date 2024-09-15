@@ -13,7 +13,7 @@ import io.github.hellogoogle2000.android.commons.constant.Global
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 
-object ToastEx {
+object ToastX {
 
     fun show(
         message: String,

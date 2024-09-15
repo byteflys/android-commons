@@ -2,7 +2,7 @@ package io.github.hellogoogle2000.android.commons.view
 
 import android.util.Log
 import android.webkit.JavascriptInterface
-import io.github.hellogoogle2000.android.commons.dialog.ToastEx
+import io.github.hellogoogle2000.android.commons.dialog.ToastX
 
 // delegate javascript console to android logcat
 object ByteFlyWebViewDebugger {
@@ -19,6 +19,6 @@ object ByteFlyWebViewDebugger {
 
     @JavascriptInterface
     fun alert(obj: String?) {
-        ToastEx.show(obj.orEmpty())
+        ToastX.show(obj.orEmpty())
     }
 }

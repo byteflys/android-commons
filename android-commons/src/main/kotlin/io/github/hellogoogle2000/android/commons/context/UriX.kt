@@ -7,7 +7,7 @@ import android.webkit.MimeTypeMap
 import io.github.hellogoogle2000.android.commons.constant.Global
 import java.io.File
 
-object UriEx {
+object UriX {
 
     const val SCHEME_HTTP = "http"
     const val SCHEME_HTTPS = "https"
