@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.view
+package x.android.commons.view
 
 import SingleArgCallbackFunc
 import android.annotation.SuppressLint
@@ -17,8 +17,8 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import io.github.hellogoogle2000.android.commons.context.ContextX.open
-import io.github.hellogoogle2000.android.commons.context.UriX.isWebsiteOrFileUri
+import x.android.commons.context.ContextX.open
+import x.android.commons.context.UriX.isWebsiteOrFileUri
 import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.fromJsonOrNull
 import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.toJson
 

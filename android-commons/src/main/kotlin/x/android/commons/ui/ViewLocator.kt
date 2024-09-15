@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.ui
+package x.android.commons.ui
 
 import android.app.Activity
 import android.content.Context
@@ -6,7 +6,7 @@ import android.graphics.Rect
 import android.util.Size
 import android.view.View
 import android.view.WindowManager
-import io.github.hellogoogle2000.android.commons.context.ActivityX.getActivityRootView
+import x.android.commons.context.ActivityX.getActivityRootView
 
 object ViewLocator {
 

@@ -1,8 +1,8 @@
-package io.github.hellogoogle2000.android.commons.view
+package x.android.commons.view
 
 import android.util.Log
 import android.webkit.JavascriptInterface
-import io.github.hellogoogle2000.android.commons.dialog.ToastX
+import x.android.commons.dialog.ToastX
 
 // delegate javascript console to android logcat
 object ByteFlyWebViewDebugger {

@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.ui
+package x.android.commons.ui
 
 import android.view.Gravity
 

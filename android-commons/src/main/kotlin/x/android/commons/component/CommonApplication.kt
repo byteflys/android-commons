@@ -1,9 +1,9 @@
-package io.github.hellogoogle2000.android.commons.component
+package x.android.commons.component
 
 import android.app.Application
 import android.os.Handler
 import android.os.Looper
-import io.github.hellogoogle2000.android.commons.constant.Global
+import x.android.commons.constant.Global
 
 class CommonApplication : Application() {
 

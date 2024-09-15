@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.dialog
+package x.android.commons.dialog
 
 import android.content.Context
 import android.util.DisplayMetrics
@@ -8,8 +8,8 @@ import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
-import io.github.hellogoogle2000.android.commons.R
-import io.github.hellogoogle2000.android.commons.constant.Global
+import x.android.commons.R
+import x.android.commons.constant.Global
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 

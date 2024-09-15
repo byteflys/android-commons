@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.geometry
+package x.android.commons.geometry
 
 enum class DockPoint {
 

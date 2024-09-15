@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.context
+package x.android.commons.context
 
 import android.os.Build
 

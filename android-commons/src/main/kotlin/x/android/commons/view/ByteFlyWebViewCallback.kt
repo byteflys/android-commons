@@ -1,4 +1,4 @@
-package io.github.hellogoogle2000.android.commons.view
+package x.android.commons.view
 
 interface ByteFlyWebViewCallback {
 
