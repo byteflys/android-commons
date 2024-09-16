@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -41,15 +40,23 @@ object ActivityX {
     }
 
     @UiContext
-    fun View.getActivity() = context.asActivity()
+    fun Context.getActivityDecorView() = asActivity().window.decorView
 
     @UiContext
-    fun Context.getActivityRootView(): View {
+    fun Context.getActivityContentView(): View {
         return asActivity().findViewById(android.R.id.content)
     }
 
     @UiContext
-    fun View.getActivityRootView() = context.getActivityRootView()
+    fun View.getActivity() = context.asActivity()
+
+    fun View.getWindowDecorView() = rootView
+
+    @UiContext
+    fun View.getActivityDecorView() = context.getActivityDecorView()
+
+    @UiContext
+    fun View.getActivityContentView() = context.getActivityContentView()
 
     fun Activity.immersive() {
         if (isApiLevelAbove(Build.VERSION_CODES.R)) {
