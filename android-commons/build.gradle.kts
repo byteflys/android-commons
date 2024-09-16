@@ -9,7 +9,7 @@ android {
 
     compileSdk = 34
     defaultConfig {
-        namespace = "io.github.hellogoogle2000.android.commons"
+        namespace = "x.android.commons"
         minSdk = 30
         targetSdk = 34
     }
