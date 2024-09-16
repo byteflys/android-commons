@@ -1,4 +1,4 @@
-package x.android.commons.dialog
+package x.android.commons.ui
 
 import android.content.Context
 import android.util.DisplayMetrics

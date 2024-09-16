@@ -2,7 +2,7 @@ package x.android.commons.view
 
 import android.util.Log
 import android.webkit.JavascriptInterface
-import x.android.commons.dialog.ToastX
+import x.android.commons.ui.ToastX
 
 // delegate javascript console to android logcat
 object ByteFlyWebViewDebugger {

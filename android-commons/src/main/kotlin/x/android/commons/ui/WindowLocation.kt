@@ -2,7 +2,7 @@ package x.android.commons.ui
 
 import android.view.Gravity
 
-data class Location(
+data class WindowLocation(
     var x: Int = 0,
     var y: Int = 0,
     var dx: Int = 0,

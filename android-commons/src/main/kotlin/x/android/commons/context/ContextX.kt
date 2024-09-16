@@ -5,7 +5,7 @@ import android.content.Intent
 import android.content.Intent.ACTION_VIEW
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.net.Uri
-import x.android.commons.dialog.ToastX
+import x.android.commons.ui.ToastX
 
 object ContextX {
 
