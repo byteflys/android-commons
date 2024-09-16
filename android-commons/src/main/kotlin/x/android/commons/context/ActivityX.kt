@@ -2,10 +2,12 @@ package x.android.commons.context
 
 import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
+import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -30,7 +32,11 @@ object ActivityX {
 
     @UiContext
     fun Context.asActivity(): Activity {
-        val activity = this as? Activity
+        var context = this
+        if (context !is Activity && context is ContextWrapper) {
+            context = context.baseContext
+        }
+        val activity = context as? Activity
         return activity ?: throw RuntimeException("ui context required")
     }
 

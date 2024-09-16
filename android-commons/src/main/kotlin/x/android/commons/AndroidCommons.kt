@@ -1,14 +1,14 @@
 package x.android.commons
 
-typealias CommonsId = R.id
+typealias CommonsId = x.android.commons.R.id
 //typealias CommonsInteger = R.integer
 //typealias CommonsString = R.string
 //typealias CommonsDimen = R.dimen
-typealias CommonsColor = R.color
-typealias CommonsDrawable = R.drawable
-typealias CommonsStyle = R.style
-typealias CommonsStyleable = R.styleable
-typealias CommonsAttr = R.attr
+typealias CommonsColor = x.android.commons.R.color
+typealias CommonsDrawable = x.android.commons.R.drawable
+typealias CommonsStyle = x.android.commons.R.style
+typealias CommonsStyleable = x.android.commons.R.styleable
+typealias CommonsAttr = x.android.commons.R.attr
 
 object AndroidCommons {
 
