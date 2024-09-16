@@ -7,11 +7,4 @@
     <attr name="maxHeight" format="dimension|reference" />
     <attr name="maxScreenRatioX" format="float" />
     <attr name="maxScreenRatioY" format="float" />
-
-    <declare-styleable name="MaxSizeTextView">
-        <attr name="maxWidth" />
-        <attr name="maxHeight" />
-        <attr name="maxScreenRatioX" />
-        <attr name="maxScreenRatioY" />
-    </declare-styleable>
 </resources>
