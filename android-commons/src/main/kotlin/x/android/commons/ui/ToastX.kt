@@ -23,13 +23,13 @@ object ToastX {
     fun show(
         @StringRes stringResId: Int,
         withLongDuration: Boolean = false
-    ) = showDefaultToast(Global.application.resources.getString(stringResId), withLongDuration)
+    ) = showDefaultToast(Global.app.resources.getString(stringResId), withLongDuration)
 
     private fun showDefaultToast(
         message: String,
         withLongDuration: Boolean = false
     ) {
-        val context = Global.application
+        val context = Global.app
         // load toast layout
         val root = LayoutInflater.from(context).inflate(R.layout.layout_toast, null)
         val wrapper = root.findViewById<View>(R.id.wrapper)
@@ -37,7 +37,7 @@ object ToastX {
         textView.text = message
         // obtain screen size
         val metrics = DisplayMetrics()
-        val manager = Global.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val manager = Global.app.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         manager.defaultDisplay.getMetrics(metrics)
         // make wrapper view fullscreen
         wrapper.layoutParams.width = metrics.widthPixels

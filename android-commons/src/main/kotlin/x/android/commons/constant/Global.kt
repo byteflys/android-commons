@@ -1,13 +1,16 @@
 package x.android.commons.constant
 
 import android.app.Application
+import android.content.res.Resources
 import android.os.Handler
 
 object Global {
 
     lateinit var TAG: String
 
-    lateinit var application: Application
+    lateinit var app: Application
 
     lateinit var handler: Handler
+
+    lateinit var resource: Resources
 }

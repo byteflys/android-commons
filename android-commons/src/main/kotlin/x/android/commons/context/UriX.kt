@@ -37,7 +37,7 @@ object UriX {
     }
 
     fun Uri.getExtensionName(): String {
-        val context = Global.application
+        val context = Global.app
         val typeMap = MimeTypeMap.getSingleton()
         when (scheme) {
             ContentResolver.SCHEME_FILE -> {

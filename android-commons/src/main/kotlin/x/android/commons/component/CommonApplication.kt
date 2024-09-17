@@ -14,7 +14,8 @@ class CommonApplication : Application() {
 
     private fun initApplication() {
         Global.TAG = packageName.split(".").last()
-        Global.application = this
+        Global.app = this
         Global.handler = Handler(Looper.getMainLooper())
+        Global.resource = resources
     }
 }
