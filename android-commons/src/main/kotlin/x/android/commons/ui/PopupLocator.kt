@@ -120,13 +120,13 @@ object PopupLocator {
                 return when (dstDockPoint) {
                     DockPoint.TOP_LEFT,
                     DockPoint.CENTER_LEFT,
-                    DockPoint.BOTTOM_LEFT -> dstRect.left - dstRect.centerX()
+                    DockPoint.BOTTOM_LEFT -> dstRect.left - parentRect.centerX()
                     DockPoint.TOP_CENTER,
                     DockPoint.CENTER,
-                    DockPoint.BOTTOM_CENTER -> 0
+                    DockPoint.BOTTOM_CENTER -> dstRect.centerX() - parentRect.centerX()
                     DockPoint.TOP_RIGHT,
                     DockPoint.CENTER_RIGHT,
-                    DockPoint.BOTTOM_RIGHT -> dstRect.right - dstRect.centerX()
+                    DockPoint.BOTTOM_RIGHT -> dstRect.right - parentRect.centerX()
                 }
             }
             Gravity.RIGHT -> {
@@ -170,13 +170,13 @@ object PopupLocator {
                 return when (dstDockPoint) {
                     DockPoint.TOP_LEFT,
                     DockPoint.TOP_CENTER,
-                    DockPoint.TOP_RIGHT -> dstRect.top - dstRect.centerY()
+                    DockPoint.TOP_RIGHT -> dstRect.top - parentRect.centerY()
                     DockPoint.CENTER_LEFT,
                     DockPoint.CENTER,
-                    DockPoint.CENTER_RIGHT -> 0
+                    DockPoint.CENTER_RIGHT -> dstRect.centerY() - parentRect.centerY()
                     DockPoint.BOTTOM_LEFT,
                     DockPoint.BOTTOM_CENTER,
-                    DockPoint.BOTTOM_RIGHT -> dstRect.bottom - dstRect.centerY()
+                    DockPoint.BOTTOM_RIGHT -> dstRect.bottom - parentRect.centerY()
                 }
             }
             Gravity.BOTTOM -> {
