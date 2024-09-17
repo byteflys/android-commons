@@ -5,16 +5,16 @@ import android.webkit.JavascriptInterface
 import x.android.commons.ui.ToastX
 
 // delegate javascript console to android logcat
-object ByteFlyWebViewDebugger {
+object XWebViewDebugger {
 
     @JavascriptInterface
     fun log(obj: String?) {
-        Log.d(ByteFlyWebViewDebugger::class.simpleName, obj.toString())
+        Log.d(XWebViewDebugger::class.simpleName, obj.toString())
     }
 
     @JavascriptInterface
     fun error(obj: String?) {
-        Log.e(ByteFlyWebViewDebugger::class.simpleName, obj.toString())
+        Log.e(XWebViewDebugger::class.simpleName, obj.toString())
     }
 
     @JavascriptInterface

@@ -1,6 +1,6 @@
 package x.android.commons.view
 
-interface ByteFlyWebViewCallback {
+interface XWebViewCallback {
 
     fun onWebViewTimeout() {}
 

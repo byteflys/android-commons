@@ -23,9 +23,9 @@ import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.fromJsonOrNull
 import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.toJson
 
 @SuppressLint("JavascriptInterface")
-open class ByteFlyWebView : WebView {
+open class XWebView : WebView {
 
-    private var callback: ByteFlyWebViewCallback? = null
+    private var callback: XWebViewCallback? = null
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attributeSet: AttributeSet?) : this(context, attributeSet, 0)
@@ -63,7 +63,7 @@ open class ByteFlyWebView : WebView {
             override fun onReceivedError(view: WebView?, request: WebResourceRequest, error: WebResourceError?) {
                 super.onReceivedError(view, request, error)
                 val url = request.url.toString()
-                Log.e(ByteFlyWebView::class.simpleName, "WebViewError $url ${error?.errorCode} ${error?.description}")
+                Log.e(XWebView::class.simpleName, "WebViewError $url ${error?.errorCode} ${error?.description}")
                 if (!request.isForMainFrame) {
                     return
                 }
@@ -87,7 +87,7 @@ open class ByteFlyWebView : WebView {
     }
 
     private fun initJavascriptContext() {
-        registerNativeObject("debugger", ByteFlyWebViewDebugger)
+        registerNativeObject("debugger", XWebViewDebugger)
     }
 
     // false means continue
@@ -159,7 +159,7 @@ open class ByteFlyWebView : WebView {
         returnObject?.let { returnObjectHandler(it) }
     }
 
-    fun setWebViewCallback(callback: ByteFlyWebViewCallback) = apply {
+    fun setWebViewCallback(callback: XWebViewCallback) = apply {
         this.callback = callback
     }
 }
