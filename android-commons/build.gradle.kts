@@ -35,7 +35,7 @@ android {
 dependencies {
 
     // Commons Serial
-    implementation("io.github.hellogoogle2000:kotlin-commons:1.0.6")
+    implementation("io.github.hellogoogle2000:kotlin-commons:1.0.9")
 
     // Kotlin
     api("androidx.core:core-ktx:1.13.1")

@@ -17,10 +17,10 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import io.github.hellogoogle2000.kotlin.commons.serialize.JSON.fromJsonOrNull
+import io.github.hellogoogle2000.kotlin.commons.serialize.JSON.toJson
 import x.android.commons.context.ContextX.open
 import x.android.commons.context.UriX.isWebsiteOrFileUri
-import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.fromJsonOrNull
-import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.toJson
 
 @SuppressLint("JavascriptInterface")
 open class XWebView : WebView {
