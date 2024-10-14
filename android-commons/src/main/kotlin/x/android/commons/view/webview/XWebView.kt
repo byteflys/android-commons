@@ -1,4 +1,4 @@
-package x.android.commons.view
+package x.android.commons.view.webview
 
 import SingleArgCallbackFunc
 import android.annotation.SuppressLint
@@ -19,8 +19,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import x.android.commons.context.ContextX.open
 import x.android.commons.context.UriX.isWebsiteOrFileUri
-import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.fromJsonOrNull
-import io.github.hellogoogle2000.kotlin.commons.serialize.JSONEx.toJson
+import x.android.commons.util.ANY.isNotNull
+import x.kotlin.commons.serialize.JSON.fromJsonOrNull
+import x.kotlin.commons.serialize.JSON.toJson
 
 @SuppressLint("JavascriptInterface")
 open class XWebView : WebView {
@@ -44,7 +45,7 @@ open class XWebView : WebView {
         settings.domStorageEnabled = true
         settings.javaScriptCanOpenWindowsAutomatically = true
         settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-        settings.cacheMode = WebSettings.LOAD_NO_CACHE
+        settings.cacheMode = WebSettings.LOAD_DEFAULT
     }
 
     private fun initWebViewClient() {
@@ -60,20 +61,25 @@ open class XWebView : WebView {
                 return delegate ?: super.shouldInterceptRequest(view, request)
             }
 
-            override fun onReceivedError(view: WebView?, request: WebResourceRequest, error: WebResourceError?) {
+            override fun onReceivedError(view: WebView, request: WebResourceRequest, error: WebResourceError?) {
                 super.onReceivedError(view, request, error)
                 val url = request.url.toString()
-                Log.e(XWebView::class.simpleName, "WebViewError $url ${error?.errorCode} ${error?.description}")
+                Log.e(javaClass.simpleName, "WebViewError $url ${error?.errorCode} ${error?.description}")
                 if (!request.isForMainFrame) {
                     return
                 }
                 when (error?.errorCode) {
+                    ERROR_HOST_LOOKUP,
                     ERROR_TIMEOUT -> onWebViewTimeout(url)
                 }
             }
 
             override fun onReceivedSslError(view: WebView, handler: SslErrorHandler, error: SslError) {
                 handler.proceed()
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                onDataLoaded()
             }
         }
     }
@@ -115,6 +121,10 @@ open class XWebView : WebView {
         callback?.onDocumentFinishLoading()
     }
 
+    open fun onDataLoaded() {
+        callback?.onDataLoaded()
+    }
+
     override fun loadUrl(url: String) {
         super.loadUrl(url)
         callback?.onDocumentStartLoading()
@@ -128,8 +138,30 @@ open class XWebView : WebView {
         loadUrl(url)
     }
 
+    fun openHtmlText(htmlText: String) = apply {
+        loadData(htmlText, "text/html", "UTF-8")
+    }
+
     fun registerNativeObject(name: String, nativeObject: Any) = apply {
         addJavascriptInterface(nativeObject, name)
+    }
+
+    fun createEvaluateCallback(
+        onEvaluateResult: SingleArgCallbackFunc<String?>
+    ) = ValueCallback<String?> {
+        if (it == null || it == "null" || it == "undefined") {
+            onEvaluateResult(null)
+        } else {
+            onEvaluateResult(it)
+        }
+    }
+
+    fun <T> createTextResultHandler(
+        returnType: Class<T>,
+        returnObjectHandler: SingleArgCallbackFunc<T?>
+    ) = { result: String? ->
+        val returnObject = result.fromJsonOrNull(returnType)
+        returnObjectHandler(returnObject)
     }
 
     fun executeJavascriptSentence(
@@ -137,15 +169,12 @@ open class XWebView : WebView {
         argsObject: Any = Unit,
         onEvaluateResult: SingleArgCallbackFunc<String?> = {}
     ) = apply {
-        var argsJson = argsObject.toJson()
-        val callback = ValueCallback<String?> {
-            if (it == "null") {
-                onEvaluateResult(null)
-            }
-            onEvaluateResult(it)
+        var argsJson = ""
+        if (argsObject.isNotNull()) {
+            argsJson = argsObject.toJson()
         }
         post {
-            evaluateJavascript("javascript:$funcName($argsJson)", callback)
+            evaluateJavascript("javascript:$funcName($argsJson)", createEvaluateCallback(onEvaluateResult))
         }
     }
 
@@ -153,10 +182,26 @@ open class XWebView : WebView {
         funcName: String,
         argsObject: Any = Unit,
         returnType: Class<T>,
-        returnObjectHandler: SingleArgCallbackFunc<T> = {}
-    ) = executeJavascriptSentence(funcName, argsObject) { result ->
-        val returnObject = result.fromJsonOrNull(returnType)
-        returnObject?.let { returnObjectHandler(it) }
+        returnObjectHandler: SingleArgCallbackFunc<T?> = {}
+    ) = executeJavascriptSentence(funcName, argsObject) {
+        createTextResultHandler(returnType, returnObjectHandler)(it)
+    }
+
+    fun executeJavascriptVariable(
+        variableName: String,
+        onEvaluateResult: SingleArgCallbackFunc<String?> = {}
+    ) = apply {
+        post {
+            evaluateJavascript("javascript:$variableName", createEvaluateCallback(onEvaluateResult))
+        }
+    }
+
+    fun <T> executeJavascriptVariable(
+        variableName: String,
+        returnType: Class<T>,
+        returnObjectHandler: SingleArgCallbackFunc<T?> = {}
+    ) = executeJavascriptVariable(variableName) {
+        createTextResultHandler(returnType, returnObjectHandler)(it)
     }
 
     fun setWebViewCallback(callback: XWebViewCallback) = apply {

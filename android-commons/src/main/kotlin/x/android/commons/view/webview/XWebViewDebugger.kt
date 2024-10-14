@@ -1,4 +1,4 @@
-package x.android.commons.view
+package x.android.commons.view.webview
 
 import android.util.Log
 import android.webkit.JavascriptInterface

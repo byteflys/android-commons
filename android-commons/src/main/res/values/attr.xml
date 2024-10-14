@@ -7,4 +7,11 @@
     <attr name="maxHeight" format="dimension|reference" />
     <attr name="maxScreenRatioX" format="float" />
     <attr name="maxScreenRatioY" format="float" />
+
+    <declare-styleable name="MaxSizeWebView">
+        <attr name="basicWidth" />
+        <attr name="basicHeight" />
+        <attr name="maxScreenRatioX" />
+        <attr name="maxScreenRatioY" />
+    </declare-styleable>
 </resources>

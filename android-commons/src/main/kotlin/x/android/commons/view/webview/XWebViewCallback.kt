@@ -1,4 +1,4 @@
-package x.android.commons.view
+package x.android.commons.view.webview
 
 interface XWebViewCallback {
 
@@ -7,4 +7,6 @@ interface XWebViewCallback {
     fun onDocumentStartLoading() {}
 
     fun onDocumentFinishLoading() {}
+
+    fun onDataLoaded() {}
 }
