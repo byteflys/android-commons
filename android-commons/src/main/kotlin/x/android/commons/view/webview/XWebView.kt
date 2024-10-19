@@ -39,6 +39,11 @@ open class XWebView : WebView {
         setBackgroundColor(Color.TRANSPARENT)
     }
 
+    override fun onDetachedFromWindow() {
+        destroy()
+        super.onDetachedFromWindow()
+    }
+
     private fun initWebSettings() {
         setWebContentsDebuggingEnabled(true)
         settings.javaScriptEnabled = true
