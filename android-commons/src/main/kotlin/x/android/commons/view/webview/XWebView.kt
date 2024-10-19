@@ -8,6 +8,7 @@ import android.net.http.SslError
 import android.util.AttributeSet
 import android.util.Log
 import android.webkit.PermissionRequest
+import android.webkit.RenderProcessGoneDetail
 import android.webkit.SslErrorHandler
 import android.webkit.ValueCallback
 import android.webkit.WebChromeClient
@@ -81,6 +82,11 @@ open class XWebView : WebView {
 
             override fun onReceivedSslError(view: WebView, handler: SslErrorHandler, error: SslError) {
                 handler.proceed()
+            }
+
+            override fun onRenderProcessGone(view: WebView, detail: RenderProcessGoneDetail): Boolean {
+                Log.e("XWebView", "render process crashed")
+                return true
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
