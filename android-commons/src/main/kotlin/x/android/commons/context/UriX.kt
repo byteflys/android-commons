@@ -1,10 +1,11 @@
 package x.android.commons.context
 
+import ApacheFileUtils
 import android.content.ContentResolver
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.webkit.MimeTypeMap
-import x.android.commons.constant.Global.app
+import x.android.commons.context.Global.app
 import x.android.commons.context.UriInternal.getAlternativeName
 import x.android.commons.context.UriInternal.queryNameByContent
 import x.android.commons.context.UriInternal.queryNameByPath
