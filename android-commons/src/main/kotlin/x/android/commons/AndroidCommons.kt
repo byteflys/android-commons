@@ -7,6 +7,9 @@ internal typealias CommonsColor = x.android.commons.R.color
 internal typealias CommonsDrawable = x.android.commons.R.drawable
 internal typealias CommonsStyle = x.android.commons.R.style
 
+internal typealias ApacheFileUtils = org.apache.commons.io.FileUtils
+internal typealias ApacheFileNameUtils = org.apache.commons.io.FilenameUtils
+
 object AndroidCommons {
 
 }

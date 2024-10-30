@@ -34,7 +34,7 @@ android {
 dependencies {
 
     // Commons Serial
-    implementation("io.github.hellogoogle2000:kotlin-commons:1.0.9")
+    implementation("io.github.hellogoogle2000:kotlin-commons:1.0.13")
 
     // Kotlin
     api("androidx.core:core-ktx:1.13.1")
@@ -67,7 +67,6 @@ dependencies {
     api(platform("androidx.compose:compose-bom:2024.09.01"))
 
     // Android Utils
-    api("net.lingala.zip4j:zip4j:2.11.5")
     api("com.blankj:utilcodex:1.31.0")
 }
 

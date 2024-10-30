@@ -4,6 +4,10 @@ import android.content.ContentResolver
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.webkit.MimeTypeMap
+import x.android.commons.constant.Global.app
+import x.android.commons.context.UriInternal.getAlternativeName
+import x.android.commons.context.UriInternal.queryNameByContent
+import x.android.commons.context.UriInternal.queryNameByPath
 import java.io.File
 
 object UriX {
@@ -35,8 +39,13 @@ object UriX {
         return Uri.parse("$FILE_ASSET_URI$fileName")
     }
 
+    fun Uri.getMimeType(): String {
+        return MimeTypeMap.getSingleton()
+            .getMimeTypeFromExtension(getExtensionName())
+            .orEmpty()
+    }
+
     fun Uri.getExtensionName(): String {
-        val context = Global.app
         val typeMap = MimeTypeMap.getSingleton()
         when (scheme) {
             ContentResolver.SCHEME_FILE -> {
@@ -44,24 +53,43 @@ object UriX {
                 return MimeTypeMap.getFileExtensionFromUrl(url)
             }
             ContentResolver.SCHEME_CONTENT -> {
-                val type = context.contentResolver.getType(this)
+                val type = app.contentResolver.getType(this)
                 return typeMap.getExtensionFromMimeType(type).orEmpty()
             }
-            ContentResolver.SCHEME_ANDROID_RESOURCE -> {
+            ContentResolver.SCHEME_ANDROID_RESOURCE,
+            SCHEME_HTTP,
+            SCHEME_HTTPS -> {
                 val retriever = MediaMetadataRetriever()
-                retriever.setDataSource(context, this)
+                retriever.setDataSource(app, this)
                 val type = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_MIMETYPE)
                 return typeMap.getExtensionFromMimeType(type).orEmpty()
             }
-            SCHEME_HTTP,
-            SCHEME_HTTPS -> return ""
             else -> return ""
         }
     }
 
-    fun Uri.getMimeType(): String {
-        return MimeTypeMap.getSingleton()
-            .getMimeTypeFromExtension(getExtensionName())
-            .orEmpty()
+    fun Uri.getFileName(): String {
+        return when (scheme) {
+            ContentResolver.SCHEME_FILE -> {
+                return File(path).name
+            }
+            ContentResolver.SCHEME_CONTENT -> {
+                val contentName = queryNameByContent()
+                if (contentName.isNotBlank()) {
+                    return contentName
+                }
+                val pathName = queryNameByPath()
+                if (pathName.isNotBlank()) {
+                    return pathName
+                }
+                return getAlternativeName()
+            }
+            else -> return getAlternativeName()
+        }
+    }
+
+    fun Uri.copyToFile(dst: String) {
+        val input = app.contentResolver.openInputStream(this)
+        ApacheFileUtils.copyToFile(input, File(dst))
     }
 }
