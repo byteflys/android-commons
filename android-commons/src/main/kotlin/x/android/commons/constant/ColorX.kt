@@ -1,7 +1,7 @@
 package x.android.commons.constant
 
 import CommonsColor
-import x.android.commons.constant.Global.resource
+import x.android.commons.context.Global.resource
 
 object ColorX {
 

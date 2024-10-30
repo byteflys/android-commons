@@ -11,7 +11,6 @@ android {
     defaultConfig {
         namespace = "x.android.commons"
         minSdk = 30
-        targetSdk = 34
     }
 
     compileOptions {
@@ -46,6 +45,7 @@ dependencies {
 
     // AndroidX
     api("androidx.appcompat:appcompat:1.7.0")
+    api("androidx.activity:activity:1.7.0")
     api("androidx.fragment:fragment-ktx:1.8.2")
     api("androidx.constraintlayout:constraintlayout:2.1.4")
     api("com.google.android.material:material:1.12.0")

@@ -1,4 +1,4 @@
-package x.android.commons.constant
+package x.android.commons.context
 
 import android.app.Application
 import android.content.res.Resources

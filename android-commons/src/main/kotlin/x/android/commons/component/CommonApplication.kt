@@ -3,7 +3,7 @@ package x.android.commons.component
 import android.app.Application
 import android.os.Handler
 import android.os.Looper
-import x.android.commons.constant.Global
+import x.android.commons.context.Global
 
 class CommonApplication : Application() {
 

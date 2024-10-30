@@ -4,7 +4,6 @@ import android.content.ContentResolver
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.webkit.MimeTypeMap
-import x.android.commons.constant.Global
 import java.io.File
 
 object UriX {

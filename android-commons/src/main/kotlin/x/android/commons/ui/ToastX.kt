@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
 import x.android.commons.R
-import x.android.commons.constant.Global
+import x.android.commons.context.Global
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 
