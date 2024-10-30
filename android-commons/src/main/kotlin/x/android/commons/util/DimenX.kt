@@ -1,6 +1,6 @@
 package x.android.commons.util
 
-import x.android.commons.constant.Global
+import x.android.commons.context.Global
 
 object DimenX {
 

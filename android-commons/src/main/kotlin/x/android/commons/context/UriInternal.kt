@@ -2,7 +2,7 @@ package x.android.commons.context
 
 import android.net.Uri
 import android.provider.OpenableColumns
-import x.android.commons.constant.Global.app
+import x.android.commons.context.Global.app
 import x.android.commons.context.UriX.getExtensionName
 import x.kotlin.commons.string.UUID
 import kotlin.io.path.Path
