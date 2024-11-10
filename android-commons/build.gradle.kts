@@ -75,7 +75,10 @@ dependencies {
     api("androidx.compose.material3:material3:1.3.1")
     api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.activity:activity-compose:1.9.3")
+
+    // coil3
     api("io.coil-kt.coil3:coil-compose:3.0.2")
+    api("io.coil-kt.coil3:coil-network-okhttp:3.0.2")
 
     // Third-Part
     api("com.blankj:utilcodex:1.31.1")
