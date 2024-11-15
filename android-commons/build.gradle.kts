@@ -51,15 +51,19 @@ dependencies {
     api("com.google.android.material:material:1.12.0")
 
     // Navigation
-    api("androidx.navigation:navigation-ui-ktx:2.8.3")
-    api("androidx.navigation:navigation-fragment-ktx:2.8.3")
+    api("androidx.navigation:navigation-ui-ktx:2.8.4")
+    api("androidx.navigation:navigation-fragment-ktx:2.8.4")
 
     // Lifecycle
     api("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
 
+    // Jetpack
+    api("androidx.window:window:1.3.0")
+    api("androidx.window:window-java:1.3.0")
+
     // Compose
-    api("org.jetbrains.compose.foundation:foundation:1.7.0")
+    api("org.jetbrains.compose.foundation:foundation:1.7.1")
     api("androidx.compose.foundation:foundation:1.7.5")
     api("androidx.compose.runtime:runtime:1.7.5")
     api("androidx.compose.runtime:runtime-android:1.7.5")
@@ -75,10 +79,12 @@ dependencies {
     api("androidx.compose.material3:material3:1.3.1")
     api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.activity:activity-compose:1.9.3")
+    api("androidx.constraintlayout:constraintlayout-compose:1.1.0")
+    api("androidx.constraintlayout:constraintlayout-compose-android:1.1.0")
 
     // coil3
-    api("io.coil-kt.coil3:coil-compose:3.0.2")
-    api("io.coil-kt.coil3:coil-network-okhttp:3.0.2")
+    api("io.coil-kt.coil3:coil-compose:3.0.3")
+    api("io.coil-kt.coil3:coil-network-okhttp:3.0.3")
 
     // Third-Part
     api("com.blankj:utilcodex:1.31.1")
