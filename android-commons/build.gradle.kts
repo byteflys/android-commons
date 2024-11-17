@@ -63,24 +63,13 @@ dependencies {
     api("androidx.window:window-java:1.3.0")
 
     // Compose
-    api("org.jetbrains.compose.foundation:foundation:1.7.1")
     api("androidx.compose.foundation:foundation:1.7.5")
     api("androidx.compose.runtime:runtime:1.7.5")
-    api("androidx.compose.runtime:runtime-android:1.7.5")
     api("androidx.compose.ui:ui:1.7.5")
-    api("androidx.compose.ui:ui-graphics:1.7.5")
-    api("androidx.compose.ui:ui-tooling:1.7.5")
-    api("androidx.compose.ui:ui-tooling-preview:1.7.5")
-    api("androidx.compose.ui:ui-tooling-preview-android:1.7.5")
     api("androidx.compose.animation:animation:1.7.5")
-    api("androidx.compose.material:material:1.7.5")
-    api("androidx.compose.material:material-icons-core:1.7.5")
-    api("androidx.compose.material:material-icons-core-android:1.7.5")
     api("androidx.compose.material3:material3:1.3.1")
-    api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.activity:activity-compose:1.9.3")
     api("androidx.constraintlayout:constraintlayout-compose:1.1.0")
-    api("androidx.constraintlayout:constraintlayout-compose-android:1.1.0")
 
     // coil3
     api("io.coil-kt.coil3:coil-compose:3.0.3")
