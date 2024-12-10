@@ -76,6 +76,7 @@ dependencies {
     api("androidx.compose.runtime:runtime:1.7.5")
     api("androidx.compose.ui:ui:1.7.5")
     api("androidx.compose.ui:ui-tooling:1.7.5")
+    api("androidx.compose.ui:ui-tooling-preview:1.7.5")
     api("androidx.compose.material:material:1.7.5")
     api("androidx.compose.material3:material3:1.3.1")
     api("androidx.compose.material3.adaptive:adaptive-android:1.0.0")
